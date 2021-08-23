@@ -1,0 +1,11 @@
+.error {
+  padding: 20px 0;
+  &__message {
+    display: block;
+    margin-bottom: 30px;
+  }
+  &__btn {
+    width: 150px;
+    cursor: pointer;
+  }
+}

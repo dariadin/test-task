@@ -1,0 +1,73 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.modal {
+  position: fixed;
+  z-index: 99999;
+  @include fullSize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__backface {
+    background-color: rgba(0,0,0, .5);
+    position: absolute;
+    @include fullSize;
+    z-index: 0;
+    cursor: pointer;
+  }
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: $palette-4;
+    background-color: transparent;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      @include fullSize;
+      height: 100%;
+      width: 2px;
+      background-color: currentColor;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 400px;
+  background-color: $palette-6;
+  border-radius: 10px;
+  border: 8px solid $palette-9;
+  $padding: 10px;
+  cursor: default;
+  @media (max-width: 470px) {
+    width: 80%;;
+  }
+  &__header {
+    padding: $padding;
+    padding-right: 20px;
+  }
+  &__body {
+    padding: $padding;
+    background-color: $palette-9;
+  }
+}

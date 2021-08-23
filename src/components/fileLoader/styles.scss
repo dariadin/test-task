@@ -1,0 +1,10 @@
+.add-files-form {
+  display: flex;
+  justify-content: center;
+  &__btn {
+    width: 250px;
+    @media (max-width: 470px) {
+      width: 150px;
+    }
+  }
+}

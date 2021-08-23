@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+
+.app-button {
+  border-color: transparent;
+  color: $palette-6;
+  cursor: pointer;
+  display: inline-block;
+  height: 3.15em;
+  line-height: 3.15em;
+  padding: 0 1em;
+  max-width: 100%;
+  &_primary {
+    font-size: 2.1rem;
+    border-radius: 10px;
+    background-color: $palette-1;
+  }
+
+  &_secondary {
+    background-color: $palette-2;
+    border-radius: 6px;
+  }
+}

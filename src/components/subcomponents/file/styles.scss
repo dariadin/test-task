@@ -1,0 +1,63 @@
+$fileWidth: 130px;
+$fileWidthSmall: 20px;
+$fileWidthMedium: 45px;
+$thumbWidth: $fileWidth * 0.61;
+$thumbWidthMobile: $fileWidthSmall * 0.61;
+$thumbWidthMobile: $fileWidthMedium * 0.61;
+@mixin calculateHeight($width) {
+  height: $width * 1.15;
+}
+.file {
+  width: $fileWidth;
+  user-select: none;
+  @include calculateHeight($fileWidth);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s;
+  @media (max-width: 955px) {
+    width: $fileWidthMedium;
+    @include calculateHeight($fileWidthMedium);
+  }
+  @media (max-width: 420px) {
+    width: $fileWidthSmall;
+    @include calculateHeight($fileWidthSmall);
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, .1);
+  }
+  &_drag {
+    opacity: 0.5;
+    position: relative;
+  }
+  &__icon {
+    width: $thumbWidth;
+    margin: 0 auto;
+    @include calculateHeight($thumbWidth);
+    background: {
+      repeat: no-repeat;
+      size: cover;
+      position: center;
+    };
+    @media (max-width: 955px) {
+      width: $fileWidthMedium;
+      @include calculateHeight($fileWidthMedium);
+    }
+    @media (max-width: 420px) {
+      width: $thumbWidthMobile;
+      @include calculateHeight($thumbWidthMobile);
+    }
+  }
+  &__name {
+    white-space: nowrap;
+    margin: 10px 0;
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__size {
+    font-size: 0.8em;
+  }
+}
